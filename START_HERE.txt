@@ -1,0 +1,15 @@
+차트 사이트 공개하기
+
+1. ZIP 압축을 풉니다.
+2. GitHub에 Public 저장소(melon-chart)를 만듭니다.
+3. 이 폴더 안의 내용 전체를 저장소 루트에 업로드합니다.
+   ZIP 자체를 업로드하는 것이 아닙니다. .github 폴더도 포함하세요.
+4. Settings > Actions > General > Workflow permissions:
+   Read and write permissions > Save
+5. Settings > Pages > Source: GitHub Actions
+6. Actions > Collect charts and deploy Pages > Run workflow
+7. 완료 후 Settings > Pages > Visit site에 공개 링크가 나옵니다.
+
+기존 화면 + 5분 간격 수집 요청 + 기록 + 30/40/50분 예측이 포함되어 있습니다.
+예약 실행은 지연될 수 있으며 정각 실행을 보장하지 않습니다.
+상세 설명과 오류 해결은 README.md를 참고하세요.
