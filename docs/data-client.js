@@ -1,3 +1,4 @@
+export {describeCollection} from './freshness.js';
 const KST=9*3600000;
 const stamp=t=>new Date(t+KST).toISOString().slice(0,16);
 const floor=(at,m)=>stamp(Math.floor(Date.parse(at+':00+09:00')/(m*60000))*m*60000);

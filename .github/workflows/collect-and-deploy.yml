@@ -6,11 +6,18 @@ on:
     paths-ignore:
       - 'docs/data/**'
   workflow_dispatch:
+    inputs:
+      run_once:
+        description: '이번 한 번만 수집 (기본: 다음 수집을 자동으로 이어 실행)'
+        type: boolean
+        default: false
   schedule:
-    - cron: '*/5 * * * *'
+    # Recovery only. A running job queues its successor without waiting for cron.
+    - cron: '2,17,32,47 * * * *'
 
 permissions:
   contents: write
+  actions: write
   pages: write
   id-token: write
 
@@ -20,22 +27,24 @@ concurrency:
 
 jobs:
   collect-and-publish:
+    if: ${{ github.ref == 'refs/heads/main' && vars.CHART_COLLECTION_PAUSED != 'true' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 15
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Check out repository
+        id: checkout
         uses: actions/checkout@v6
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Verify collector and generate public page
+      - name: Generate public page and verify collector
         run: |
-          npm test
           npm run build
+          npm test
       - name: Collect current source records
         run: npm run collect
       - name: Commit persistent chart records
@@ -45,7 +54,11 @@ jobs:
           git add docs/data
           if ! git diff --cached --quiet; then
             git commit -m 'chore: record chart snapshots [skip ci]'
-            git push
+            for attempt in 1 2 3; do
+              if git push; then exit 0; fi
+              if [ "$attempt" -lt 3 ]; then git pull --rebase origin main; fi
+            done
+            exit 1
           fi
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -53,6 +66,12 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: docs
+          retention-days: 1
       - name: Deploy public site
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Continue collection automatically at the next five-minute slot
+        if: ${{ !cancelled() && steps.checkout.conclusion == 'success' && !inputs.run_once && vars.CHART_COLLECTION_PAUSED != 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/continue-collection.mjs
