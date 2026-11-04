@@ -1,0 +1,125 @@
+{
+  "response": {
+    "RESULTCODE": "0",
+    "RECENTTIME": "20:50",
+    "SONGINFO": {
+      "SONGID": "602732384",
+      "SONGNAME": "Pop Off Pop Off",
+      "ARTISTLIST": [
+        {
+          "ARTISTNAME": "KiiiKiii (키키)"
+        }
+      ],
+      "CURRANK": "44",
+      "PASTRANK": "45"
+    },
+    "RANKCHART": {
+      "XLABELS": [
+        {
+          "XLABEL": "14시",
+          "HIGHLIGHTING": false
+        },
+        {
+          "XLABEL": "15시",
+          "HIGHLIGHTING": false
+        },
+        {
+          "XLABEL": "16시",
+          "HIGHLIGHTING": false
+        },
+        {
+          "XLABEL": "17시",
+          "HIGHLIGHTING": false
+        },
+        {
+          "XLABEL": "18시",
+          "HIGHLIGHTING": false
+        },
+        {
+          "XLABEL": "19시",
+          "HIGHLIGHTING": false
+        },
+        {
+          "XLABEL": "현재",
+          "HIGHLIGHTING": true
+        },
+        {
+          "XLABEL": "예측",
+          "HIGHLIGHTING": true
+        }
+      ],
+      "YMINIMUM": 40,
+      "YMAXIMUM": 101,
+      "DATA": [
+        {
+          "XINDEX": 0,
+          "VALUE": 51,
+          "LABEL": "51",
+          "HIGHLIGHTING": false
+        },
+        {
+          "XINDEX": 1,
+          "VALUE": 50,
+          "LABEL": "50",
+          "HIGHLIGHTING": false
+        },
+        {
+          "XINDEX": 2,
+          "VALUE": 49,
+          "LABEL": "49",
+          "HIGHLIGHTING": false
+        },
+        {
+          "XINDEX": 3,
+          "VALUE": 48,
+          "LABEL": "48",
+          "HIGHLIGHTING": false
+        },
+        {
+          "XINDEX": 4,
+          "VALUE": 45,
+          "LABEL": "45",
+          "HIGHLIGHTING": false
+        },
+        {
+          "XINDEX": 5,
+          "VALUE": 45,
+          "LABEL": "45",
+          "HIGHLIGHTING": false
+        },
+        {
+          "XINDEX": 6,
+          "VALUE": 44,
+          "LABEL": "44",
+          "HIGHLIGHTING": true
+        }
+      ],
+      "PREDICTEDDATA": [
+        {
+          "XINDEX": 6,
+          "VALUE": 44,
+          "LABEL": "44",
+          "HIGHLIGHTING": true
+        },
+        {
+          "XINDEX": 7,
+          "VALUE": 52,
+          "LABEL": "52",
+          "HIGHLIGHTING": true
+        }
+      ],
+      "TITLE": {
+        "VALUEPLACEHOLDER": "##VALUE##",
+        "TEXT": "다음 예측은 ##VALUE##입니다.",
+        "VALUE": "52위"
+      }
+    },
+    "LISTENERCHART": {
+      "TITLE": {
+        "VALUEPLACEHOLDER": "##VALUE##",
+        "TEXT": "이 곡은 지금\n##VALUE##명이 듣고 있어요.",
+        "VALUE": "732"
+      }
+    }
+  }
+}
