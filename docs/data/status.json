@@ -1,1 +1,1 @@
-{"attemptedAt":"2026-11-04T20:25","predictions":null,"errors":[],"errorCount":0}
+{"attemptedAt":"2026-11-04T20:30","predictions":{"sourceAt":"2026-11-04T20:30","collected":97,"expected":100},"errors":["예측 38120327: 미제공 또는 갱신 대기","예측 34908740: 미제공 또는 갱신 대기","예측 39765727: 미제공 또는 갱신 대기"],"errorCount":3}
