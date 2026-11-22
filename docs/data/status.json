@@ -1,1 +1,1 @@
-{"attemptedAt":"2026-11-22T21:46","predictions":{"sourceAt":"2026-11-22T21:40","collected":96,"expected":100},"errors":["HOT100: fetch failed","39765727: fetch failed","603052339: fetch failed","37901626: fetch failed","38120327: fetch failed"],"errorCount":5}
+{"attemptedAt":"2026-11-22T21:50","predictions":{"sourceAt":"2026-11-22T21:50","collected":98,"expected":100},"errors":["예측 603052339: 미제공 또는 갱신 대기","예측 38120327: 미제공 또는 갱신 대기"],"errorCount":2}
